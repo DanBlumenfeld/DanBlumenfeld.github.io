@@ -1,0 +1,27 @@
+---
+layout: layouts/base.html
+title: "Home"
+description: "The default page"
+eleventyImport:
+  collections: ["blog"]
+---
+
+<h1>Recent writings</h1>
+<ul>
+  {%- set count = 0 -%}
+{%- for post in collections.blog | reverse -%}
+    {%- if count < 3 -%}
+        <li>
+            <p><strong><a href="{{ post.url }}">{{ post.data.title }}</a></strong> - {{ post.date | compactDate }}</p>
+            <small>
+                {% if post.data.excerpt %}
+                    {{ post.data.excerpt }}
+                {% else %}
+                    {% excerpt post %}
+                {% endif %}
+            </small>
+        </li>
+        {%- set count = count + 1 -%}
+    {%- endif -%}
+{%- endfor -%}
+  </ul>

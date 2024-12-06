@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include "basehead.html" %}
+        {% block head %} {% endblock %}
+    </head>
+    <body class="text-center">
+               
+
+        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+            <header class="masthead mb-auto">
+              <div class="inner">
+                <h3 class="masthead-brand"><a href="/index">Dan Blumenfeld</a></h3>
+                <nav class="nav nav-masthead justify-content-center">
+                  <a class="nav-link" href="/blog">Blog</a>
+                  <a class="nav-link" href="/cv">CV</a>
+                </nav>
+              </div>
+            </header>
+      <hr/>
+            <main role="main" class="inner cover text-left">            
+                {{content | safe }}               
+            </main>
+      <hr/>
+            <footer class="mastfoot mt-auto">
+              <div class="inner">
+                <p class="d-flex align-items-center">Clumsily nailed together with&nbsp;<a href="https://www.11ty.dev/">Eleventy</a>,&nbsp;<a href="https://getbootstrap.com/">Bootstrap</a>, and a text editor.</p>                
+                <p class="d-flex align-items-center">
+                  <img src="https://img.icons8.com/ios-filled/20/000000/email.png" alt="Email Icon" class="me-2">
+                  <a href="mailto:dan@danieljblumenfeld.com">dan@danieljblumenfeld.com</a>
+                  &nbsp;-&nbsp;
+                  <img src="https://img.icons8.com/ios-filled/20/0077b5/linkedin.png" alt="LinkedIn Icon" class="me-2">
+                  <a href="https://www.linkedin.com/in/danieljblumenfeld/" target="_blank" rel="nofollow">LinkedIn</a>
+                  &nbsp;-&nbsp;
+                  <img src="https://img.icons8.com/ios-filled/20/000000/github.png" alt="GitHub Icon" class="me-2">
+                  <a href="https://github.com/DanBlumenfeld" target="_blank" rel="nofollow">GitHub</a>
+                </p>
+                <p class="d-flex align-items-center">©&nbsp;<span id="current-year"></span>&nbsp;Dan Blumenfeld. All rights reserved.&nbsp;<a href="/privacy-policy">Privacy Policy</a></p>
+              </div>
+            </footer>
+          </div>
+
+        <!-- Keep copyright up to date (at least according to the viewer's browser) -->
+        <script>
+          document.getElementById("current-year").textContent = new Date().getFullYear();
+        </script>
+
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="../../assets/js/vendor/popper.min.js"></script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+    </body>
+</html>
