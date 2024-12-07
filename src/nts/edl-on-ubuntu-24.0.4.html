@@ -1,0 +1,22 @@
+---
+layout: layouts/base.html
+title: "EDL on Ubuntu 24.0.4"
+excerpt: "Want to install a custom ROM on a Lenovo ThinkSmart View? You need to use edl."
+categories: ["Ubuntu","Home Assistant", "Android"]
+tags: nts
+---
+<p>
+    For my Home Assistant installation, I picked up a ThinkSmart View 8" tablet, designed for desktop videoconferencing. 
+    There's a <a href="https://community.home-assistant.io/t/is-this-the-perfect-standalone-tablet-for-ha/658422">custom ROM</a> available for it, 
+        which requires a tool called <a href="https://github.com/bkerler/edl">edl</a>. Here's how I got it running.
+    </a>
+</p>
+<pre>
+git clone https://github.com/bkerler/edl
+cd edl
+git submodule update --init --recursive
+python3 -m venv edl_venv
+source edl_venv/bin/activate
+pip3 install .
+</pre>
+Following the advice found <a href="https://github.com/bkerler/edl/issues/245">here</a>: pull down the code, create a virtual environment, use pip3 instead of setup.py
