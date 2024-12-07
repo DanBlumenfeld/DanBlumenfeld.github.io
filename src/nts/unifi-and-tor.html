@@ -6,14 +6,24 @@ categories: ["UniFi","Tor"]
 tags: nts
 ---
 
-<p>If you have a UniFi network, you may be surprised to find that Tor cannot connect.</p>
-
+<p>If you have a UniFi network, you may be surprised to find that Tor cannot connect, leading to a distinct lack of utility in your Tor Browser.</p>
+<hr/>
 <p>To unblock it from the UniFi management console, you'll need to check two places.</p>
+<ol>
+    <li>
+        <p>
+            First, ensure that the Settings->Security->Intrusion Prevention->Dark Web Blocker option is unchecked.
+            <img src="/assets/nts/unifi-darkwebblocker.png" />
+        </p>
+        <small><a href="/contact">Dan Blumenfeld</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>,by the author</small>
+    </li>
+    <li>
+        <p>
+            Second, ensure that the Tor option is unchecked in Settings->Security->Intrusion Prevention->Detection Sensitivity->Customize.
+            <img src="/assets/nts/unifi-detectionsensitivity.png" />
+        </p>
+        <small><a href="/contact">Dan Blumenfeld</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>,by the author</small>
+    </li>
+</ol>
 
-<p>First, ensure that the Settings->Security->Intrusion Prevention->Dark Web Blocker option is unchecked.
-<img src="/assets/nts/unifi-darkwebblocker.png" /></p>
-<small><a href="/contact">Dan Blumenfeld</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>,by the author</small>
 
-<p>Second, ensure that the Tor option is unchecked in Settings->Security->Intrusion Prevention->Detection Sensitivity->Customize.
-<img src="/assets/nts/unifi-detectionsensitivity.png" /></p>
-<small><a href="/contact">Dan Blumenfeld</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>,by the author</small>
