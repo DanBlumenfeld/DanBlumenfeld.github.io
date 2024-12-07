@@ -34,9 +34,12 @@ Copied over my old CtCFAQ, my CV, and threw a quick-n-dirty Bootstrap implementa
 ## Blog
 Started with [this guide](https://cfjedimaster.github.io/eleventy-blog-guide/guide.html)
 
-## NTS (Note to Self)
+## NTS (Notes to Self)
 Unordered collection of short and sweet how-tos, etc.
 
 ## Auto build
 Using Github Action on commit to main, runs `npm install` and `npm run build`, then deploys the `_site` folder to the `github-pages` environment
+
+## Added RSS Feeds for Blog and Notes To Self
+
 

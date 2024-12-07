@@ -11,11 +11,13 @@ pagination:
 ---
 
 <h2>Blog Archive</h2>
+<p>
 Categories:&nbsp;{&nbsp;
 {%- for blogcategory in collections.blogcategories -%}
     <a href="/blog/categories/{{ blogcategory | slugify }}/index.html">{{ blogcategory }}</a>&nbsp;
 {%- endfor -%}
-}
+}</p>
+<p><a href="/blog/feed.xml">RSS Feed</a></p>
 <hr/>
 <h3>Posts</h3>
 {% for post in posts %}

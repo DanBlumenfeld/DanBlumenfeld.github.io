@@ -11,11 +11,13 @@ pagination:
 ---
 
 <h2>Notes To Self</h2>
+<p>
 Categories:&nbsp;{&nbsp;
 {%- for ntscategory in collections.ntscategories -%}
     <a href="/nts/categories/{{ ntscategory | slugify }}/index.html">{{ ntscategory }}</a>&nbsp;
 {%- endfor -%}
-}
+}</p>
+<p><a href="/nts/feed.xml">RSS Feed</a></p>
 <hr/>
 {% for nts in ntses %}
     <p><strong><a href="{{ nts.url }}">{{ nts.data.title }}</a></strong></p>

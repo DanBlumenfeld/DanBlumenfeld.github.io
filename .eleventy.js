@@ -1,10 +1,16 @@
-import { DateTime } from "luxon"; // Date formatting
+import { DateTime } from "luxon"; // for date formatting
+import  pluginRss  from "@11ty/eleventy-plugin-rss"; //For RSS feed
 
 export default function (eleventyConfig) {
+    // Plugins
+    eleventyConfig.addPlugin(pluginRss);
+
+    // Passthroughs
     eleventyConfig.addPassthroughCopy("src/assets");
     eleventyConfig.addPassthroughCopy("src/css");
     eleventyConfig.addPassthroughCopy("src/dist");
 
+    // Shortcodes
     eleventyConfig.addShortcode('excerpt', post => extractExcerpt(post));
     function extractExcerpt(post) {
         if (!post.templateContent) return '';        
@@ -18,10 +24,10 @@ export default function (eleventyConfig) {
         return content;
     };
 
+    // Filters
     eleventyConfig.addFilter("compactDate", (dateString) => {
         return DateTime.fromJSDate(new Date(dateString)).toFormat("MMM dd, yyyy");
     });
-
     eleventyConfig.addFilter("filterByCategory", function(posts, category) {
         /*
         case matters, so let's lowercase the desired category
@@ -35,6 +41,7 @@ export default function (eleventyConfig) {
         return result;
     });
 
+    // Collections
     eleventyConfig.addCollection("blogcategories", function(collectionApi) {
         let categories = new Set();
         let posts = collectionApi.getFilteredByTag('blog');
@@ -44,7 +51,6 @@ export default function (eleventyConfig) {
         });
         return Array.from(categories);
     });
-
     eleventyConfig.addCollection("ntscategories", function(collectionApi) {
         let categories = new Set();
         let posts = collectionApi.getFilteredByTag('nts');
