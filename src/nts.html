@@ -1,30 +1,29 @@
 ---
 layout: layouts/base.html
-title: "Blog"
+title: "Notes To Self"
 eleventyImport:
-  collections: ["blogcategories"]
+  collections: ["ntscategories"]
 pagination:
-  data: collections.blog
+  data: collections.nts
   size: 10
-  alias: posts
+  alias: ntses
   reverse: true
 ---
 
-<h2>Blog Archive</h2>
+<h2>Notes To Self</h2>
 Categories:&nbsp;{&nbsp;
-{%- for blogcategory in collections.blogcategories -%}
-    <a href="/blog/categories/{{ blogcategory | slugify }}/index.html">{{ blogcategory }}</a>&nbsp;
+{%- for ntscategory in collections.ntscategories -%}
+    <a href="/nts/categories/{{ ntscategory | slugify }}/index.html">{{ ntscategory }}</a>&nbsp;
 {%- endfor -%}
 }
 <hr/>
-<h3>Posts</h3>
-{% for post in posts %}
-    <p><strong><a href="{{ post.url }}">{{ post.data.title }}</a></strong> - {{ post.date | compactDate }}</p>
+{% for nts in ntses %}
+    <p><strong><a href="{{ nts.url }}">{{ nts.data.title }}</a></strong></p>
     <small>
-    {% if post.data.excerpt %}
-        {{ post.data.excerpt }}
+    {% if nts.data.excerpt %}
+        {{ nts.data.excerpt }}
     {% else %}
-        {% excerpt post %}
+        {% excerpt nts %}
     {% endif %}
     </small>
     <br/>

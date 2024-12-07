@@ -1,0 +1,25 @@
+---
+layout: layouts/base.html
+pagination:
+  data: collections.ntscategories
+  size: 1
+  alias: ntscategory
+permalink: "/nts/categories/{{ ntscategory | slugify }}/index.html"
+---
+
+<h2>Notes To Self regarding: {{ ntscategory }}</h2>
+<br/>
+
+{% set ntses = collections.nts| filterByCategory(ntscategory)  %}
+{% for nts in ntses | reverse %}
+    <p><strong><a href="{{ nts.url }}">{{ nts.data.title }}</a></strong></p>
+    <small>
+{% if nts.data.excerpt %}
+    {{ nts.data.excerpt }}
+{% else %}
+    {% excerpt nts %}
+{% endif %}
+    </small>
+    <br/>
+    <br/>
+{% endfor %}

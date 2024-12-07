@@ -2,7 +2,7 @@
 layout: layouts/base.html
 title: Configuring my daily driver using Ansible
 date: 2024-12-06
-categories: ["IaC"]
+categories: ["IaC","Ansible"]
 tags: blog
 ---
 Historically, I've practiced a form of infrastructure management I like to call "memory-based chaos". However, as I slide through middle age with increasing lack of cognitive grace, it becomes more apparent that I should let my tools work for me. Enter shell scripting and [Ansible](https://www.ansible.com/)...

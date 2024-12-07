@@ -16,11 +16,44 @@ export default function (eleventyConfig) {
         // Strip HTML tags using a regex
         content = content.replace(/<\/?[^>]+(>|$)/g, "");    
         return content;
-    }
+    };
 
     eleventyConfig.addFilter("compactDate", (dateString) => {
         return DateTime.fromJSDate(new Date(dateString)).toFormat("MMM dd, yyyy");
-      });
+    });
+
+    eleventyConfig.addFilter("filterByCategory", function(posts, category) {
+        /*
+        case matters, so let's lowercase the desired category
+        and we will lowercase our posts categories
+        */
+        category = category.toLowerCase();
+        let result = posts.filter(p => {
+            let categories = p.data.categories.map(s => s.toLowerCase());
+            return categories.includes(category);
+        });
+        return result;
+    });
+
+    eleventyConfig.addCollection("blogcategories", function(collectionApi) {
+        let categories = new Set();
+        let posts = collectionApi.getFilteredByTag('blog');
+        posts.forEach(p => {
+            let cats = p.data.categories;
+            cats.forEach(c => categories.add(c));
+        });
+        return Array.from(categories);
+    });
+
+    eleventyConfig.addCollection("ntscategories", function(collectionApi) {
+        let categories = new Set();
+        let posts = collectionApi.getFilteredByTag('nts');
+        posts.forEach(p => {
+            let cats = p.data.categories;
+            cats.forEach(c => categories.add(c));
+        });
+        return Array.from(categories);
+    });
     
 
     return {
