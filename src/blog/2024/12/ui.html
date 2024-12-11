@@ -1,0 +1,85 @@
+---
+layout: layouts/blog.njk
+title: Starting to play with the UI
+date: 2024-12-11
+categories: ["web","css"]
+tags: blog
+---
+<section>
+<p>In the first iteration of this reincarnation of my site, I started with a quick-n-dirty Bootstrap theme to get the ball rolling...seemed reasonable, right? 
+    A quick way to get started?
+</p>
+<p>
+    Yeah, well...it took roughly 2 hours before I began to realize that implementing anything in Bootstrap before I had at least 
+    a passing familiarity with CSS was a bad idea. When I found myself sprinkling the pages with <code>&lt;hr&gt;</code>s and <code>&amp;nbsp;</code>s 
+    just to mess with layout, that was a danger sign. Young(er) Dan may well have stubbornly forged ahead, but old(er) wise(r) Dan chose another path.
+</p>
+<p>
+    So, I pulled out all of the CSS and Bootstrap files I'd dropped in place, and started instead hand-crafting the CSS one step at a time.
+</p>
+</section>
+
+
+<h2>Preliminary cleanup</h2>
+
+<section>
+    <h3>Eleventy blocks</h3>
+    One of the first things I realized, even before getting to the styling, is that I wanted to be able to override the page title format. I'm happy with the default of <strong>Dan Blumenfeld - {page title}</strong> in most cases, but, as an example, <strong>Dan Blumenfeld - Blog - {post title}</strong> might be better for blog posts.
+
+    This was pleasantly easy to accomplish.
+    <ol>
+        <li>
+            In my base page layout (<code>base.njk</code>), I defined the title as <code>{% raw %}&lt;title&gt;{% block title %}Dan Blumenfeld - {{ title }}{% endblock %}&lt;/title&gt;{% endraw %}</code>, so that whatever title was defined in the front matter of the page being displayed would be used.
+        </li>
+        <li>
+            I created a child layout (<code>blog.njk</code>), with the following content:
+            <p>
+            <code>{% raw %}
+    {% extends "layouts/base.njk" %}
+
+    {% block title %}Dan Blumenfeld - Blog - {{ title }}{% endblock %}
+    {% endraw %}</code></p>
+        </li>
+        <li>
+            I specified the child layout in the front matter of my post as so: <code>layout: layouts/blog.njk</code>
+        </li>
+    </ol>
+
+    And just like magic, it worked. :-)
+</section>
+
+<section>
+    <h3>File format choices</h3>
+    <p>
+        I had started with a mix of Markdown and HTML, as I hadn't yet come across a reason to prefer one over the other. 
+        Until I realized that Markdown was going to be converted to HTML anyway, so I'd have more control over the eventual output 
+        if I just went to HTML in the first place.
+    </p>
+    <p>
+        This triggered a bit of angst because I'd already created quite a few Markdown files which needed to be converted; 
+        but, taking steps now to make things more consistent down the road seemed wise.
+    </p>
+    <p>
+        So, to sum up: the gerneral rule is that all layout files are Nunjucks(.njk) and all content files are HTML.
+    </p>
+</section>
+
+<section>
+    <h3>Semantic markup</h3>
+    <p>
+        Apparently, in this newfangled world of HTML5, there are more options than just the <code>&lt;p&gt;</code> tag for 
+        <a href=https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure#Enter_HTML5_structural_elements">grouping content</a>. 
+        Who knew?!?
+    </p>
+    <p> So, I went through and made a feeble stab at applying the correct tags.</p>
+</section>
+
+
+
+<h2>Styling</h2>
+
+
+
+
+
+

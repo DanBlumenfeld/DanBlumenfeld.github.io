@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.html
+layout: layouts/base.njk
 title: "Blog"
 eleventyImport:
   collections: ["blogcategories"]
@@ -21,16 +21,16 @@ Categories:&nbsp;{&nbsp;
 <hr/>
 <h3>Posts</h3>
 {% for post in posts %}
-    <p><strong><a href="{{ post.url }}">{{ post.data.title }}</a></strong> - {{ post.date | compactDate }}</p>
-    <small>
-    {% if post.data.excerpt %}
-        {{ post.data.excerpt }}
-    {% else %}
-        {% excerpt post %}
-    {% endif %}
-    </small>
-    <br/>
-    <br/>
+    <article>
+      <p><strong><a href="{{ post.url }}">{{ post.data.title }}</a></strong> - {{ post.date | compactDate }}</p>
+      <small>
+      {% if post.data.excerpt %}
+          {{ post.data.excerpt }}
+      {% else %}
+          {% excerpt post %}
+      {% endif %}
+      </small>
+  </article>
 {% endfor %}
 
 <p>
