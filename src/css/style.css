@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Defaults */
+body{
+    margin: 0.5rem;
+    font-family: "Space+Mono", monospace;
+    text-align: center;
+}
+
+main {
+    margin: .5rem;
+    padding: .5rem;
+}
+
+main ol {
+    margin: 1rem;
+    padding: .5rem;
+}
+
+main ul {
+    margin: .5rem;
+    padding: .5rem;
+}
+
+main p {
+    padding: .5rem;
+}
+
+hr {
+    margin:auto;
+    width: 50%;
+    max-width: 600px;
+}
+
+/* Nav bar styling */
+nav {
+    border: 2px solid #333;
+    border-radius: 2rem;
+    margin: 0 auto 1rem;
+    max-width: 600px;
+    font-size: 3rem;
+    line-height: 7rem;
+}
+
+nav h2 {
+    padding: 1rem;
+    background: green;
+    border-radius: 2rem 2rem 0 0;
+}
+
+nav h2 a {
+    text-decoration: none;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    border-top: 1px solid #333;
+}
+
+nav li a {
+    display: block;
+}
+
+nav li a, nav li a:visited {
+    text-decoration: none;
+    color: #333
+}
+
+nav li a:hover, nav li a:focus {
+    background: #333;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+nav li.active {
+    font-weight: bolder;
+}
+
+nav li:last-child a {
+    border-radius: 0 0 2rem 2rem;
+}
+
+
+/* Footer */
+footer span {
+    padding: .5rem;
+}
+
+
+/* Blog specific styling*/
+article.blog-article {
+    text-align: left;
+}

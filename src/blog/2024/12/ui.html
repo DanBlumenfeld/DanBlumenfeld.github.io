@@ -15,7 +15,7 @@ tags: blog
     just to mess with layout, that was a danger sign. Young(er) Dan may well have stubbornly forged ahead, but old(er) wise(r) Dan chose another path.
 </p>
 <p>
-    So, I pulled out all of the CSS and Bootstrap files I'd dropped in place, and started instead hand-crafting the CSS one step at a time.
+    So, I pulled out all of the CSS and Bootstrap junk I'd dropped in place, and started instead hand-crafting the CSS one step at a time.
 </p>
 </section>
 
@@ -44,8 +44,9 @@ tags: blog
             I specified the child layout in the front matter of my post as so: <code>layout: layouts/blog.njk</code>
         </li>
     </ol>
-
-    And just like magic, it worked. :-)
+    <p>
+        And just like magic, it worked. :-)
+    </p>    
 </section>
 
 <section>
@@ -77,7 +78,52 @@ tags: blog
 
 
 <h2>Styling</h2>
+<section>
+    <h3>Resources used</h3>
+    <ul>
+        <li><a href="https://youtu.be/OXGznpKZ_sA?si=lb0_hswsnAhsSsUy">CSS Tutorial Video</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">MDN CSS Reference</a></li>
+    </ul>
 
+    <h3> My first question: variables, please?</h3>
+    <p>
+        After typing the same color and size variables more than twice, I had to ask: how can I define variables or otherwise keep my CSS as DRY as possible?
+    </p>
+    <p>
+        It turns out that I can use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS Custom Properties</a>. 
+        This is a means by which properties can be defined using two dashes (--), so that they operate in the same cascading manner as other CSS entities;
+        or they can be defined using the @property at-rule. In both cases, they can then be referenced using an inline <code>var(--custompropname);</code> syntax in the following CSS.
+    </p>
+    <section>
+        <h4>Two-dash declaration</h4>
+        <p>Has to be written inside a ruleset. For global access, adding them to the root selector is an easy approach, but they can be declared inside any ruleset.</p>
+        <pre>
+            :root {
+                --secondary-color: #c0ffee;
+              }
+              
+        </pre>
+    </section>
+    <section>
+        <h4>@property at-rule definition</h4>
+        <p>More expressive, in theory. I've not really used them yet.</p>
+        <pre>
+            @property --secondary-color {
+                syntax: "<color>";
+                inherits: false;
+                initial-value: #c0ffee;
+              }              
+        </pre>
+    </section>
+    <section>
+        <h4>Referencing the custom properties</h4>
+        <pre>
+            main {
+                background-color: var(--secondary-color);
+              }              
+        </pre>
+    </section>
+</section>
 
 
 

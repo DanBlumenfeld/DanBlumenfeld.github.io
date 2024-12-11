@@ -8,25 +8,27 @@
       <meta name="description" content="{{description}}">
       <link rel="icon" href="/assets/images/favicons/favicon.ico">
       <title>{% block title %}Dan Blumenfeld - {{title}}{% endblock %}</title>
-      <link rel="stylesheet" href="/css/global.css" />
+      <link rel="stylesheet" href="/css/style.css" />
     </head>
     <body>     
       <header>
-        <div>
-          <h3><a href="/index">Dan Blumenfeld</a></h3>
-          <nav>
-            <a href="/blog">Blog</a>
-            <a href="/nts">NTS</a>
-            <a href="/cv">CV</a>
-          </nav>
-        </div>
+        <nav>
+          <h2><a href="/index">Dan Blumenfeld</a></h2>
+          <ul>
+            {% for item in navigation %}
+              <li{% if page.url == item.url %} class="active"{% endif %}>
+                <a href="{{ item.url }}">{{ item.label }}</a>
+              </li>
+            {% endfor %}
+          </ul> 
+        </nav>
       </header>
       <main>       
         {% block main %}{{ content | safe }}{% endblock %}                          
       </main>
       <footer>
-        <p>Clumsily nailed together with&nbsp;<a href="https://www.11ty.dev/">Eleventy</a> and a text editor.</p>                
-        <p>
+        <p id="toolcredit">Clumsily nailed together with&nbsp;<a href="https://www.11ty.dev/">Eleventy</a> and a text editor.</p>                
+        <p id="contact">
           <img src="https://img.icons8.com/ios-filled/20/000000/email.png" alt="Email Icon">
           <a href="mailto:dan@danieljblumenfeld.com">dan@danieljblumenfeld.com</a>
           <img src="https://img.icons8.com/ios-filled/20/0077b5/linkedin.png" alt="LinkedIn Icon">
@@ -34,7 +36,7 @@
           <img src="https://img.icons8.com/ios-filled/20/000000/github.png" alt="GitHub Icon">
           <a href="https://github.com/DanBlumenfeld" target="_blank" rel="nofollow">GitHub</a>
         </p>
-        <p>©<span id="current-year"></span>Dan Blumenfeld. All rights reserved.<a href="/privacy-policy">Privacy Policy</a></p>
+        <p id="ownership">©<span id="current-year"></span>Dan Blumenfeld. All rights reserved.<span><span><a href="/privacy-policy">Privacy Policy</a></span></p>
       </footer>
 
       <!-- Keep copyright up to date (at least according to the viewer's browser) -->
