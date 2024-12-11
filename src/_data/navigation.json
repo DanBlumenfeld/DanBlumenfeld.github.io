@@ -1,0 +1,5 @@
+[
+    { "label": "Blog", "url": "/blog/" },
+    { "label": "Notes To Self", "url": "/nts/" },
+    { "label": "CV", "url": "/cv/" }
+  ]

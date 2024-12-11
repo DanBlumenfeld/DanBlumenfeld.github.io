@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.html
+layout: layouts/base.njk
 title: "Notes To Self"
 eleventyImport:
   collections: ["ntscategories"]
@@ -20,16 +20,16 @@ Categories:&nbsp;{&nbsp;
 <p><a href="/nts/feed.xml">RSS Feed</a></p>
 <hr/>
 {% for nts in ntses %}
-    <p><strong><a href="{{ nts.url }}">{{ nts.data.title }}</a></strong></p>
-    <small>
-    {% if nts.data.excerpt %}
-        {{ nts.data.excerpt }}
-    {% else %}
-        {% excerpt nts %}
-    {% endif %}
-    </small>
-    <br/>
-    <br/>
+    <article>
+      <p><strong><a href="{{ nts.url }}">{{ nts.data.title }}</a></strong></p>
+      <small>
+      {% if nts.data.excerpt %}
+          {{ nts.data.excerpt }}
+      {% else %}
+          {% excerpt nts %}
+      {% endif %}
+      </small>
+  </article>
 {% endfor %}
 
 <p>

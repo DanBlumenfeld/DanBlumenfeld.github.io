@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+      <meta name="author" content="Dan Blumenfeld">
+      <meta name="description" content="{{description}}">
+      <link rel="icon" href="/assets/images/favicons/favicon.ico">
+      <title>{% block title %}Dan Blumenfeld - {{title}}{% endblock %}</title>
+      <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>     
+      <header>
+        <nav>
+          <h2><a href="/index">Dan Blumenfeld</a></h2>
+          <ul>
+            {% for item in navigation %}
+              <li{% if page.url == item.url %} class="active"{% endif %}>
+                <a href="{{ item.url }}">{{ item.label }}</a>
+              </li>
+            {% endfor %}
+          </ul> 
+        </nav>
+      </header>
+      <main>       
+        {% block main %}{{ content | safe }}{% endblock %}                          
+      </main>
+      <footer>
+        <p id="toolcredit">Clumsily nailed together with&nbsp;<a href="https://www.11ty.dev/">Eleventy</a> and a text editor.</p>                
+        <p id="contact">
+          <img src="https://img.icons8.com/ios-filled/20/000000/email.png" alt="Email Icon">
+          <a href="mailto:dan@danieljblumenfeld.com">dan@danieljblumenfeld.com</a>
+          <img src="https://img.icons8.com/ios-filled/20/0077b5/linkedin.png" alt="LinkedIn Icon">
+          <a href="https://www.linkedin.com/in/danieljblumenfeld/" target="_blank" rel="nofollow">LinkedIn</a>
+          <img src="https://img.icons8.com/ios-filled/20/000000/github.png" alt="GitHub Icon">
+          <a href="https://github.com/DanBlumenfeld" target="_blank" rel="nofollow">GitHub</a>
+        </p>
+        <p id="ownership">©<span id="current-year"></span>Dan Blumenfeld. All rights reserved.<span><span><a href="/privacy-policy">Privacy Policy</a></span></p>
+      </footer>
+
+      <!-- Keep copyright up to date (at least according to the viewer's browser) -->
+      <script>
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+      </script>
+
+    </body>
+</html>
