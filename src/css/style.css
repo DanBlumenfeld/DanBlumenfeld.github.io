@@ -45,8 +45,8 @@ nav {
     border-radius: 2rem;
     margin: 0 auto 1rem;
     max-width: 600px;
-    font-size: 3rem;
-    line-height: 7rem;
+    font-size: 2rem;
+    line-height: 4rem;
 }
 
 nav h2 {
@@ -71,7 +71,7 @@ nav li a {
     display: block;
 }
 
-nav li a, nav li a:visited {
+nav a, nav a:visited {
     text-decoration: none;
     color: #333
 }
