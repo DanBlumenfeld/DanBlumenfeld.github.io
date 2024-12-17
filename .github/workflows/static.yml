@@ -35,8 +35,8 @@ jobs:
           onlyRemoveDeployments: true
 
   build:
-    # Pin to the same version as I use for development
     runs-on: ubuntu-latest
+    needs: cleanup
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

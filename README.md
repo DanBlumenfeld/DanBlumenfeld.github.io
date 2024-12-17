@@ -7,6 +7,7 @@ My personal site-slash-excuse to play with unfamiliar technologies. Currently, t
  - Notes To Self: simple how-tos and reminders. (with categories, RSS)
  - CV: really more of a personal narrative than something to be submitted for consideration.
  - Legacy content: things like the [CtC FAQ](https://www.danieljblumenfeld.com/ctcfaq/) that I provided in prior incarnations of this site.
+ - Recipes (soon)
 
 ## Tech Info
 
