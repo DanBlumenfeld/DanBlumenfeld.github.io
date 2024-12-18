@@ -36,6 +36,7 @@ Using [Github Action on commit to main](https://github.com/DanBlumenfeld/DanBlum
  - Decide on and adhere to a syntax standard: Markdown for all blog and NTS posts? Nunjucks for feeds? HTML for standalone pages?
  - Consider adding a third category of posts...tutorials. Or just a specific blog category with its own dedicated endpoint?
  - Clean up the CtC FAQ
+ - Implement recipes
 
 
 ## Initial Setup (preserved for posterity until I write up a formal tutorial)
