@@ -33,10 +33,21 @@ main p {
     padding: .5rem;
 }
 
-hr {
+main hr {
     margin:auto;
-    width: 50%;
-    max-width: 600px;
+    width: 75%;
+}
+
+main h1 {
+    font-size: 2rem;
+}
+
+main h2 {
+    font-size: 1.5rem;
+}
+
+main h3 {
+    font-size: 1rem;
 }
 
 /* Nav bar styling */
@@ -97,7 +108,26 @@ footer span {
 }
 
 
-/* Blog specific styling*/
+/* Blog specific styling */
 article.blog-article {
+    text-align: left;
+}
+
+/* CV-specific styling */
+.cv {    
+    text-align: center;
+}
+
+.cv ul, .cv ol {
+    list-style-type: none;
+    padding-left: 10%;
+    text-align: left;
+}
+
+.cv section hr {
+    max-width: 40%
+}
+
+.cv p {
     text-align: left;
 }
