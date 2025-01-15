@@ -47,8 +47,7 @@
           console.log('Map initialized successfully');
         } catch (error) {
           console.error('Error initializing map:', error);
-        }
-      
+        }      
 
         // Load GeoJSON files
         map.data.loadGeoJson('/assets/muddycreekforksrd/Tax_Parcel_46C0.geojson');
@@ -78,15 +77,8 @@
                 map.setCenter(userLocation);
                 map.setZoom(15);                
                 }
-
-                // Place a marker at the user's location
-                if (!userMarker) {
-                  userMarker = new google.maps.Marker({
-                    position: userLocation,
-                    map: map,
-                    title: 'You are here'
-                  });
-              }
+               
+              refreshUserLocation()
 
               console.log('Current location:', userLocation);
               console.log('Distance from initial position:', distance, 'miles');
@@ -98,9 +90,44 @@
           );
         } else {
           alert('Geolocation is not supported by this browser.');
-        }
+        }   
 
       }
+
+      // Function to refresh user location every minute
+      function refreshUserLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            function(position) {
+              const userLocation = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+
+              if (!userMarker) {
+                  userMarker = new google.maps.Marker({
+                    position: userLocation,
+                    map: map,
+                    title: 'You are here'
+                  });
+              }
+
+              // Update the marker's position without recentering the map
+              if (userMarker) {
+                userMarker.setPosition(userLocation);
+              }
+
+              console.log('Updated location:', userLocation);
+            },
+            function(error) {
+              console.error('Error getting location:', error);
+              alert('Unable to retrieve your location');
+            }
+          );
+        } else {
+          alert('Geolocation is not supported by this browser.');
+        }
+      }      
 
       function loadGoogleMaps() {
         var script = document.createElement('script');
@@ -111,6 +138,8 @@
       }
 
       loadGoogleMaps();
+
+      setInterval(refreshUserLocation, 30000); //in milliseconds
 
     </script>
   </body>
