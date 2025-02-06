@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+title: "SSL on Proxmox using Let's Encrypt"
+excerpt: "Surprisingly difficult to find good information on how to make it happen"
+categories: ["Proxmox","LetsEncrypt","Namecheap"]
+tags: nts
+---
+
+<p>I found it surprisingly difficult to get Proxmox to use Let's Encrypt certificates with a DNS challenge for my Namecheap-hosted domain</p>
+<hr/>
+<p>
+    To make a long story short, I spent quite a bit of time struggling to get Proxmox to put the necessary TXT records into my Namecheap DNS. 
+    The API was set up and worked fine, and in fact was successfully used to get SSL certs for my Home Assistant instance.
+</p>
+<p>
+    The secret sauce was in the ACME DNS Plugin configuration. The Validation Delay needed to be high (180 seconds), the DNS API was (of course) namecheap, and the API Data needed 4 values:
+    <br/>
+    <code>NAMECHEAP_API_USER=myNamecheapUserName</code><br/>
+    <code>NAMECHEAP_API_KEY=myNamecheapAPIKey</code><br/>
+    <code>NAMECHEAP_USERNAME=myNamecheapUserName</code><br/>
+    <code>NAMECHEAP_SOURCEIP=myPublicIP</code><br/>
+    <br/>
+    Oh, and be sure that the values are *not* enclosed in quotation marks.
+</p>
+<p>
+    Here's a <a href="https://www.derekseaman.com/2023/04/proxmox-lets-encrypt-ssl-the-easy-button.html">good tutorial</a> that covers the general process using Cloudflare DNS.
+    <br/>
+    Here's a <a href="https://www.reddit.com/r/Proxmox/comments/q45f85/comment/krpnth2/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">Reddit post</a> that identified the problem I was encountering calling the Namecheap API to add the ACME challenge TXT record.
+</p>
+
+
+
